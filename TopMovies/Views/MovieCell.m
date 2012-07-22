@@ -1,6 +1,7 @@
 
 #import "MovieCell.h"
 #import "MovieCell+Private.h"
+#import <UIKit/UIStringDrawing.h>
 
 @implementation MovieCell
 
@@ -20,6 +21,18 @@
 }
 
 #pragma mark - instance methods
+
+- (void) initializeCellWithMovieData: (NSDictionary *) movie
+{
+    self.title = [movie valueForKey: @"title"];
+    self.rating = [movie valueForKey: @"mpaa_rating"];
+    NSDictionary *ratings = [movie valueForKey:@"ratings"];
+    CGFloat criticRating = [[ratings valueForKey:@"critics_score"] floatValue] * .01;
+    self.criticRating = criticRating;
+    NSDictionary *posters = [movie valueForKey:@"posters"];
+    NSString *imageURL = [posters valueForKey:@"thumbnail"];
+    self.posterImage = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+}
 
 - (UIImage *) posterImage
 {
@@ -51,6 +64,15 @@
 
 - (void) setTitle: (NSString *) title
 {
+    UIFont *font = self.movieTitleLabel.font;
+    CGSize size = [title sizeWithFont: font constrainedToSize:CGSizeMake(170, 20) lineBreakMode:UILineBreakModeTailTruncation];
+    CGRect frame = self.movieTitleLabel.frame;
+    frame.size = size;
+    self.movieTitleLabel.frame = frame;
+    frame = self.ratingImageView.frame;
+    frame.origin.x = self.movieTitleLabel.frame.origin.x + self.movieTitleLabel.frame.size.width + 5.0f;
+    self.ratingImageView.frame = frame;
+    
     self.movieTitleLabel.text = title;
 }
 

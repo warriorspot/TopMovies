@@ -18,4 +18,12 @@
 /// The movie poster image
 @property (nonatomic, strong) UIImage * posterImage;
 
+/// Set the values of the cell using the movie data
+/// in the passed dictionary.
+///
+/// @param movie
+///     the movie data
+///
+- (void) initializeCellWithMovieData: (NSDictionary *) movie;
+
 @end

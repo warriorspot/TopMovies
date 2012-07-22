@@ -78,16 +78,12 @@
     if (cell == nil) 
     {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"MovieCell" owner:nil options:nil] objectAtIndex:0];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     NSDictionary *movie = [self.movies objectAtIndex:indexPath.row];
     
-    cell.title = [movie valueForKey: @"title"];
-    cell.rating = [movie valueForKey: @"mpaa-rating"];
-    NSDictionary *ratings = [movie valueForKey:@"ratings"];
-    cell.criticRating = [[ratings valueForKey:@"critics_score"] floatValue];
-    NSDictionary *posters = [movie valueForKey:@"posters"];
-    //NSString *imageURL = [posters valueForKey:@"thumbnail"];
+    [cell initializeCellWithMovieData:movie];
     
     return cell;
 }
