@@ -1,6 +1,8 @@
 
+#import "AppDelegate.h"
 #import "MBProgressHUD.h"
 #import "MovieCell.h"
+#import "MovieDetailViewController.h"
 #import "MovieListViewController.h"
 #import "MovieListViewController+Private.h"
 #import "MovieRequest.h"
@@ -18,22 +20,34 @@
 
 - (void) didReceiveMemoryWarning
 {
+    self.movies = nil;
     self.imageCache = nil;
 }
 
 - (void) viewDidLoad
 {
     self.title = @"Top 10 Movies";
+    self.movieTableView.alpha = 0.0f;
 }
 
 - (void) viewDidUnload
 {
+    self.movies = nil;
     self.imageCache = nil;
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    [self requestMovies];
+    if(self.movies == nil)
+    {
+        [self toggleView:self.movieTableView visible:NO animated: NO];
+        [self requestMovies];
+    }
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark - MovieRequest delegate
@@ -52,6 +66,8 @@
     [movies addObjectsFromArray:[self moviesFromData:data]];
     
     [self.movieTableView reloadData];
+    
+    [self toggleView:self.movieTableView visible:YES animated:YES];
 }
 
 - (void) movieRequest: (MovieRequest *) request didFailWithError: (NSError *) error
@@ -99,7 +115,10 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     
+    MovieDetailViewController *detailViewController = [[MovieDetailViewController alloc] initWithNibName:@"MovieDetailViewController" bundle:nil];
+    [delegate.navigationController pushViewController:detailViewController animated:YES];
 }
 
 #pragma mark - UITableViewDataSource delegate methods
@@ -167,10 +186,42 @@
 
 - (void) requestMovies
 {
+    if(self.movies)
+    {
+        [self.movies removeAllObjects];
+    }
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     movieRequest = [[MovieRequest alloc] init];
     movieRequest.delegate = self;
     [movieRequest start];
+}
+
+- (void) toggleView: (UIView *) toggleView visible: (BOOL) visible animated: (BOOL) animated
+{
+    CGFloat newAlpha;
+    
+    if(visible)
+    {
+        newAlpha = 1.0f;
+    }
+    else
+    {
+        newAlpha = 0.0f;
+    }
+    
+    if(animated)
+    {
+        [UIView beginAnimations:@"toggle_view" context:nil];
+        [UIView setAnimationDuration:0.5f];
+    }
+    
+    toggleView.alpha = newAlpha;
+    
+    if(animated)
+    {
+        [UIView commitAnimations];
+    }
 }
 
 @end
