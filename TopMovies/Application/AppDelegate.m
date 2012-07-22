@@ -4,7 +4,8 @@
 
 @implementation AppDelegate
 
-@synthesize window = _window;
+@synthesize navigationController;
+@synthesize window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -12,7 +13,10 @@
     self.window.backgroundColor = [UIColor whiteColor];
 
     MovieListViewController *movieListViewController = [[MovieListViewController alloc] initWithNibName:@"MovieListViewController" bundle:nil];
-    self.window.rootViewController = movieListViewController;
+    
+    navigationController = [[UINavigationController alloc] initWithRootViewController:movieListViewController];
+    navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];
     

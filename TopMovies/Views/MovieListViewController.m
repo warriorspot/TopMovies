@@ -23,7 +23,7 @@
 
 - (void) viewDidLoad
 {
-    
+    self.title = @"Top 10 Movies";
 }
 
 - (void) viewDidUnload
@@ -77,6 +77,8 @@
     }
 }
 
+#pragma mark - UITableViewDelegate methods
+
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"MovieCell";
@@ -93,6 +95,11 @@
     [self initializeCell: cell withMovieData:movie];
     
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 #pragma mark - UITableViewDataSource delegate methods
