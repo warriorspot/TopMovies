@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4437C9FB15BC791100929C52 /* MovieListViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieListViewController+Private.h"; sourceTree = "<group>"; };
 		44949DDF15B9953E00B94BB1 /* TopMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44949DE315B9953E00B94BB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		44949DE515B9953E00B94BB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -223,6 +224,7 @@
 				44949E2515B9970F00B94BB1 /* MovieListViewController.h */,
 				44949E2615B9970F00B94BB1 /* MovieListViewController.m */,
 				44949E2715B9970F00B94BB1 /* MovieListViewController.xib */,
+				4437C9FB15BC791100929C52 /* MovieListViewController+Private.h */,
 			);
 			name = Views;
 			path = TopMovies/Views;
@@ -462,10 +464,14 @@
 		44949E0D15B9953E00B94BB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brennan Cleveland (6C66639BLF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brennan Cleveland (6C66639BLF)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TopMovies/Application/TopMovies-Prefix.pch";
 				INFOPLIST_FILE = "TopMovies/Application/TopMovies-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2E17BB05-48C0-4674-B865-581D599D944D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2E17BB05-48C0-4674-B865-581D599D944D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -473,10 +479,14 @@
 		44949E0E15B9953E00B94BB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brennan Cleveland (6C66639BLF)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brennan Cleveland (6C66639BLF)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TopMovies/Application/TopMovies-Prefix.pch";
 				INFOPLIST_FILE = "TopMovies/Application/TopMovies-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2E17BB05-48C0-4674-B865-581D599D944D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2E17BB05-48C0-4674-B865-581D599D944D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -2,6 +2,7 @@
 #import "MBProgressHUD.h"
 #import "MovieCell.h"
 #import "MovieListViewController.h"
+#import "MovieListViewController+Private.h"
 #import "MovieRequest.h"
 
 @interface MovieListViewController ()
@@ -10,9 +11,15 @@
 
 @implementation MovieListViewController
 
+@synthesize imageCache;
 @synthesize movieRequest;
 @synthesize movies;
 @synthesize movieTableView;
+
+- (void) didReceiveMemoryWarning
+{
+    self.imageCache = nil;
+}
 
 - (void) viewDidLoad
 {
@@ -21,7 +28,7 @@
 
 - (void) viewDidUnload
 {
-    
+    self.imageCache = nil;
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -72,7 +79,7 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"MovieCell";
     
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
@@ -83,7 +90,7 @@
     
     NSDictionary *movie = [self.movies objectAtIndex:indexPath.row];
     
-    [cell initializeCellWithMovieData:movie];
+    [self initializeCell: cell withMovieData:movie];
     
     return cell;
 }
@@ -100,8 +107,43 @@
     return 100.0f;
 }
 
-
 #pragma mark - private methods
+
+- (void) cacheImage: (UIImage *) image withURLString: (NSString *) URLString
+{
+    if(self.imageCache == nil)
+    {
+        self.imageCache = [[NSMutableDictionary alloc] init];
+    }
+    
+    [self.imageCache  setValue:image forKey:URLString];
+}
+
+- (UIImage *) imageFromCacheWithURLString: (NSString *) URLString
+{
+    return [self.imageCache valueForKey:URLString];
+}
+
+- (void) initializeCell: (MovieCell *) cell withMovieData: (NSDictionary *) movie
+{
+    cell.title = [movie valueForKey: @"title"];
+    cell.rating = [movie valueForKey: @"mpaa_rating"];
+    NSDictionary *ratings = [movie valueForKey:@"ratings"];
+    CGFloat criticRating = [[ratings valueForKey:@"critics_score"] floatValue] * .01;
+    cell.criticRating = criticRating;
+    NSDictionary *posters = [movie valueForKey:@"posters"];
+    NSString *imageURL = [posters valueForKey:@"thumbnail"];
+
+    UIImage *image = [self imageFromCacheWithURLString:imageURL];
+    if(image == nil)
+    {
+        image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+        [self cacheImage:image withURLString:imageURL];
+    }
+    
+    cell.posterImage = image;
+}
+
 
 - (NSArray *) moviesFromData: (NSDictionary *) data
 {
