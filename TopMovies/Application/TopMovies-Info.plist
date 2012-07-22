@@ -34,7 +34,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>APIKey</key>
+	<key>MovieRequestAPIKey</key>
 	<string>9rmhgnm4d35ru3q78u45hcjh</string>
+	<key>MovieRequestBaseURL</key>
+	<string>http://api.rottentomatoes.com/api/public/v1.0/lists</string>
+	<key>MovieRequestTargetPath</key>
+	<string>movies/box_office.json?apikey=</string>
 </dict>
 </plist>
