@@ -222,9 +222,9 @@
 				44949E2B15B9972400B94BB1 /* MovieDetailViewController.m */,
 				44949E2C15B9972400B94BB1 /* MovieDetailViewController.xib */,
 				44949E2515B9970F00B94BB1 /* MovieListViewController.h */,
+				4437C9FB15BC791100929C52 /* MovieListViewController+Private.h */,
 				44949E2615B9970F00B94BB1 /* MovieListViewController.m */,
 				44949E2715B9970F00B94BB1 /* MovieListViewController.xib */,
-				4437C9FB15BC791100929C52 /* MovieListViewController+Private.h */,
 			);
 			name = Views;
 			path = TopMovies/Views;

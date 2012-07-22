@@ -1,11 +1,15 @@
 
 #import "MovieDetailViewController.h"
 
-@interface MovieDetailViewController ()
-
-@end
-
 @implementation MovieDetailViewController
+
+@synthesize moviePosterImageView;
+@synthesize synopsisHeaderLabel;
+@synthesize synopsisLabel;
+@synthesize castHeaderLabel;
+@synthesize castLabel;
+@synthesize divider;
+@synthesize summaryLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +36,13 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - instance methods
+
+- (void) displayMovieWithMovieData:(NSDictionary *)movie
+{
+    
 }
 
 @end
