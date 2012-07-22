@@ -22,18 +22,6 @@
 
 #pragma mark - instance methods
 
-- (void) initializeCellWithMovieData: (NSDictionary *) movie
-{
-    self.title = [movie valueForKey: @"title"];
-    self.rating = [movie valueForKey: @"mpaa_rating"];
-    NSDictionary *ratings = [movie valueForKey:@"ratings"];
-    CGFloat criticRating = [[ratings valueForKey:@"critics_score"] floatValue] * .01;
-    self.criticRating = criticRating;
-    NSDictionary *posters = [movie valueForKey:@"posters"];
-    NSString *imageURL = [posters valueForKey:@"thumbnail"];
-    self.posterImage = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
-}
-
 - (UIImage *) posterImage
 {
     return self.posterImageView.image;
@@ -64,15 +52,7 @@
 
 - (void) setTitle: (NSString *) title
 {
-    UIFont *font = self.movieTitleLabel.font;
-    CGSize size = [title sizeWithFont: font constrainedToSize:CGSizeMake(170, 20) lineBreakMode:UILineBreakModeTailTruncation];
-    CGRect frame = self.movieTitleLabel.frame;
-    frame.size = size;
-    self.movieTitleLabel.frame = frame;
-    frame = self.ratingImageView.frame;
-    frame.origin.x = self.movieTitleLabel.frame.origin.x + self.movieTitleLabel.frame.size.width + 5.0f;
-    self.ratingImageView.frame = frame;
-    
+    [self adjustTitleAndRatingForTitle:title];
     self.movieTitleLabel.text = title;
 }
 
@@ -87,6 +67,25 @@
 }
 
 #pragma mark - private methods
+
+- (void) adjustTitleAndRatingForTitle: (NSString *) title
+{
+    CGRect titleLabelFrame = self.movieTitleLabel.frame;
+    if(CGSizeEqualToSize(defaultTitleSize, CGSizeZero)) 
+    {
+        defaultTitleSize = CGSizeMake(titleLabelFrame.size.width, titleLabelFrame.size.height);
+    }
+    
+    UIFont *font = self.movieTitleLabel.font;
+    CGSize titleSize = [title sizeWithFont: font constrainedToSize:defaultTitleSize lineBreakMode:UILineBreakModeTailTruncation];
+    
+    titleLabelFrame.size = titleSize;
+    self.movieTitleLabel.frame = titleLabelFrame;
+    
+    CGRect ratingImageFrame = self.ratingImageView.frame;
+    ratingImageFrame.origin.x = self.movieTitleLabel.frame.origin.x + self.movieTitleLabel.frame.size.width + 5.0f;
+    self.ratingImageView.frame = ratingImageFrame;
+}
 
 - (void) initializeRatingsDictionary
 {

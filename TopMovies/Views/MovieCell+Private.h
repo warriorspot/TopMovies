@@ -3,6 +3,10 @@
 /// UIKit implementation of the visuals of the cell.
 ///
 @interface MovieCell()
+{
+@private
+    CGSize defaultTitleSize;
+}
 
 /// Label to display the movie title
 @property (nonatomic, strong) IBOutlet UILabel *movieTitleLabel;
