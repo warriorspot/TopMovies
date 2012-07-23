@@ -49,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		4437C9FB15BC791100929C52 /* MovieListViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieListViewController+Private.h"; sourceTree = "<group>"; };
+		4437C9FC15BC915300929C52 /* MovieDetailViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieDetailViewController+Private.h"; sourceTree = "<group>"; };
 		44949DDF15B9953E00B94BB1 /* TopMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44949DE315B9953E00B94BB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		44949DE515B9953E00B94BB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -219,6 +220,7 @@
 				44C1B9FF15BAEBF000E546BC /* MovieCell.m */,
 				44C1BA0115BAEC0A00E546BC /* MovieCell.xib */,
 				44949E2A15B9972400B94BB1 /* MovieDetailViewController.h */,
+				4437C9FC15BC915300929C52 /* MovieDetailViewController+Private.h */,
 				44949E2B15B9972400B94BB1 /* MovieDetailViewController.m */,
 				44949E2C15B9972400B94BB1 /* MovieDetailViewController.xib */,
 				44949E2515B9970F00B94BB1 /* MovieListViewController.h */,
