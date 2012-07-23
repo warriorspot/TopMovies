@@ -28,12 +28,14 @@
 {
     self.title = @"Top 10 Movies";
     self.movieTableView.alpha = 0.0f;
+    [super viewDidLoad];
 }
 
 - (void) viewDidUnload
 {
     self.movies = nil;
     self.imageCache = nil;
+    [super viewDidUnload];
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -43,6 +45,8 @@
         [self toggleView:self.movieTableView visible:NO animated: NO];
         [self requestMovies];
     }
+    
+    [super viewWillAppear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -115,9 +119,13 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *movieData = [self.movies objectAtIndex:indexPath.row];
+    
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     
     MovieDetailViewController *detailViewController = [[MovieDetailViewController alloc] initWithNibName:@"MovieDetailViewController" bundle:nil];
+    detailViewController.movieData = movieData;
+    
     [delegate.navigationController pushViewController:detailViewController animated:YES];
 }
 
