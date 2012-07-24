@@ -6,10 +6,7 @@
 #import "MovieListViewController.h"
 #import "MovieListViewController+Private.h"
 #import "MovieRequest.h"
-
-@interface MovieListViewController ()
-
-@end
+#import "Reachability.h"
 
 @implementation MovieListViewController
 
@@ -143,6 +140,16 @@
 
 #pragma mark - private methods
 
+- (BOOL) connected
+{
+    if([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable)
+    {
+        return NO;
+    }
+    
+    return YES;
+}
+
 - (void) cacheImage: (UIImage *) image withURLString: (NSString *) URLString
 {
     if(self.imageCache == nil)
@@ -194,6 +201,17 @@
 
 - (void) requestMovies
 {
+    if(![self connected])
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NETWORK_REQUEST_FAILED_TITLE", NULL)  
+                                                            message:NSLocalizedString(@"NETWORK_NOT_CONNECTED", NULL) 
+                                                           delegate:self 
+                                                  cancelButtonTitle:@"Retry" 
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+    
     if(self.movies)
     {
         [self.movies removeAllObjects];
