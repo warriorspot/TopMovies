@@ -3,3 +3,5 @@
 "NETWORK_REQUEST_FAILED" = "Could not retrieve movies!";
 "NETWORK_NOT_CONNECTED" = "You appear to be offline.\nTry again when you are connected.";
 "NETWORK_NOT_CONNECTED_RETRY" = "Retry";
+
+"TWITTER_NOT_AVAILABLE" = "Unable to send a Tweet!";

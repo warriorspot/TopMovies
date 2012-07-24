@@ -1,6 +1,7 @@
 
 #import "MovieDetailViewController.h"
 #import "MovieDetailViewController+Private.h"
+#import <Twitter/TWTweetComposeViewController.h>
 
 #define SPACER 5.0f
 
@@ -67,10 +68,25 @@
 
 - (void) didSelectTweet: (id) sender
 {
-    
+    if([TWTweetComposeViewController canSendTweet])
+    {
+        TWTweetComposeViewController *tweetController = [[TWTweetComposeViewController alloc] init];
+        NSURL *link = [self linkFromMovieData];
+        [tweetController addURL:link];
+        [self presentModalViewController:tweetController animated:YES];
+    }
+    else 
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil 
+                                                            message:NSLocalizedString(@"TWITTER_NOT_AVAILABLE", NULL)
+                                                           delegate:nil 
+                                                  cancelButtonTitle:@"Ok" 
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
-- (void) initializeWithMovieData:(NSDictionary *)movie
+- (void) initializeWithMovieData:(NSDictionary *) movie
 {
     if(movie == nil) return;
     
@@ -142,6 +158,15 @@
     summaryLabel.frame = frame;
     
     self.scrollView.contentSize = CGSizeMake(320.0f, frame.origin.y + frame.size.height + SPACER);
+}
+
+- (NSURL *) linkFromMovieData
+{
+    NSDictionary *links = [self.movieData valueForKey:@"links"];
+    NSString *linkString = [links valueForKey:@"alternate"];
+    NSURL *url = [NSURL URLWithString:linkString];
+    
+    return url;
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44636B2315BE3EDF0017CCCA /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44636B2215BE3EDF0017CCCA /* Twitter.framework */; };
 		44949DE415B9953E00B94BB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44949DE315B9953E00B94BB1 /* UIKit.framework */; };
 		44949DE615B9953E00B94BB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44949DE515B9953E00B94BB1 /* Foundation.framework */; };
 		44949DE815B9953E00B94BB1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44949DE715B9953E00B94BB1 /* CoreGraphics.framework */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		4437C9FB15BC791100929C52 /* MovieListViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieListViewController+Private.h"; sourceTree = "<group>"; };
 		4437C9FC15BC915300929C52 /* MovieDetailViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieDetailViewController+Private.h"; sourceTree = "<group>"; };
+		44636B2215BE3EDF0017CCCA /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		44949DDF15B9953E00B94BB1 /* TopMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44949DE315B9953E00B94BB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		44949DE515B9953E00B94BB1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -99,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44636B2315BE3EDF0017CCCA /* Twitter.framework in Frameworks */,
 				44949E3C15B9A63100B94BB1 /* SystemConfiguration.framework in Frameworks */,
 				44949DE415B9953E00B94BB1 /* UIKit.framework in Frameworks */,
 				44949DE615B9953E00B94BB1 /* Foundation.framework in Frameworks */,
@@ -145,6 +148,7 @@
 		44949DE215B9953E00B94BB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				44636B2215BE3EDF0017CCCA /* Twitter.framework */,
 				44949DE315B9953E00B94BB1 /* UIKit.framework */,
 				44949DE515B9953E00B94BB1 /* Foundation.framework */,
 				44949DE715B9953E00B94BB1 /* CoreGraphics.framework */,
