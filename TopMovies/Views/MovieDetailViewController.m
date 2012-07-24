@@ -4,6 +4,7 @@
 
 @implementation MovieDetailViewController
 
+@synthesize activityIndicator;
 @synthesize scrollView;
 @synthesize moviePosterImageView;
 @synthesize synopsisHeaderLabel;
@@ -14,10 +15,25 @@
 @synthesize summaryLabel;
 @synthesize movieData;
 
-- (void) viewWillAppear:(BOOL)animated
+- (void) viewDidAppear:(BOOL)animated
 {
     [self initializeWithMovieData:self.movieData];
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
+}
+
+- (void) viewDidUnload
+{
+    self.activityIndicator = nil;
+    self.scrollView = nil;
+    self.moviePosterImageView = nil;
+    self.synopsisHeaderLabel = nil;
+    self.synopsisLabel = nil;
+    self.castHeaderLabel = nil;
+    self.castLabel = nil;
+    self.divider = nil;
+    self.summaryLabel = nil;
+    
+    [super viewDidUnload];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

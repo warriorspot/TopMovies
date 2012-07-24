@@ -4,6 +4,7 @@
 @interface MovieDetailViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *movieData;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet UIImageView *moviePosterImageView;
 @property (nonatomic, strong) IBOutlet UILabel *synopsisHeaderLabel;
