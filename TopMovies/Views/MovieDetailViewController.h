@@ -15,3 +15,5 @@
 @property (nonatomic, strong) UIBarButtonItem *tweetButton;
 
 @end
+
+extern CGSize const MaximumSynopsisSize;

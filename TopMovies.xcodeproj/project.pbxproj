@@ -49,8 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4437C9FB15BC791100929C52 /* MovieListViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieListViewController+Private.h"; sourceTree = "<group>"; };
-		4437C9FC15BC915300929C52 /* MovieDetailViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieDetailViewController+Private.h"; sourceTree = "<group>"; };
 		44636B2215BE3EDF0017CCCA /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		44949DDF15B9953E00B94BB1 /* TopMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44949DE315B9953E00B94BB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -89,10 +87,8 @@
 		44C1B9FE15BAEBF000E546BC /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		44C1B9FF15BAEBF000E546BC /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		44C1BA0115BAEC0A00E546BC /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
-		44C1BA0315BAFA7B00E546BC /* MovieCell+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieCell+Private.h"; sourceTree = "<group>"; };
 		44C1BA0415BB158400E546BC /* MovieRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieRequest.h; sourceTree = "<group>"; };
 		44C1BA0515BB158400E546BC /* MovieRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieRequest.m; sourceTree = "<group>"; };
-		44C1BA0715BB15E300E546BC /* MovieRequest+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MovieRequest+Private.h"; sourceTree = "<group>"; };
 		44C1BA0815BB99E800E546BC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				44C1BA0415BB158400E546BC /* MovieRequest.h */,
-				44C1BA0715BB15E300E546BC /* MovieRequest+Private.h */,
 				44C1BA0515BB158400E546BC /* MovieRequest.m */,
 				44949E3315B99A7400B94BB1 /* Reachability.h */,
 				44949E3415B99A7400B94BB1 /* Reachability.m */,
@@ -220,15 +215,12 @@
 			children = (
 				44C1B9F315BAEBAD00E546BC /* Images */,
 				44C1B9FE15BAEBF000E546BC /* MovieCell.h */,
-				44C1BA0315BAFA7B00E546BC /* MovieCell+Private.h */,
 				44C1B9FF15BAEBF000E546BC /* MovieCell.m */,
 				44C1BA0115BAEC0A00E546BC /* MovieCell.xib */,
 				44949E2A15B9972400B94BB1 /* MovieDetailViewController.h */,
-				4437C9FC15BC915300929C52 /* MovieDetailViewController+Private.h */,
 				44949E2B15B9972400B94BB1 /* MovieDetailViewController.m */,
 				44949E2C15B9972400B94BB1 /* MovieDetailViewController.xib */,
 				44949E2515B9970F00B94BB1 /* MovieListViewController.h */,
-				4437C9FB15BC791100929C52 /* MovieListViewController+Private.h */,
 				44949E2615B9970F00B94BB1 /* MovieListViewController.m */,
 				44949E2715B9970F00B94BB1 /* MovieListViewController.xib */,
 			);

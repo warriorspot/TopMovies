@@ -1,7 +1,13 @@
 
 #import "MovieRequest.h"
-#import "MovieRequest+Private.h"
 #import "SimpleRESTRequest.h"
+
+@interface MovieRequest()
+
+@property (nonatomic, strong) SimpleRESTRequest *restRequest;
+
+@end
+
 
 @implementation MovieRequest
 

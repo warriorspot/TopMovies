@@ -4,9 +4,15 @@
 #import "MovieCell.h"
 #import "MovieDetailViewController.h"
 #import "MovieListViewController.h"
-#import "MovieListViewController+Private.h"
 #import "MovieRequest.h"
 #import "Reachability.h"
+
+@interface MovieListViewController()
+
+@property (nonatomic, strong) NSMutableDictionary *imageCache;
+@property (readwrite, strong) NSMutableArray *movies;
+
+@end
 
 @implementation MovieListViewController
 

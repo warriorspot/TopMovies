@@ -1,9 +1,15 @@
 
 #import "MovieDetailViewController.h"
-#import "MovieDetailViewController+Private.h"
 #import <Twitter/TWTweetComposeViewController.h>
 
 #define SPACER 5.0f
+
+@interface MovieDetailViewController()
+
+- (void) initializeWithMovieData: (NSDictionary *) movie;
+
+@end
+
 
 @implementation MovieDetailViewController
 
@@ -32,6 +38,8 @@
                                                        action:@selector(didSelectTweet:)];
     self.tweetButton.tintColor = [UIColor blueColor];
     self.navigationItem.rightBarButtonItem = self.tweetButton;
+    
+    [super viewDidLoad];
 }
 
 - (void) viewDidUnload
@@ -90,9 +98,9 @@
 {
     if(movie == nil) return;
     
+    /// Image
     NSDictionary *posters = [movie valueForKey:@"posters"];
     NSString *imageURL = [posters valueForKey:@"detailed"];
-
     UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
     self.moviePosterImageView.image = image;
     
@@ -135,7 +143,6 @@
     startY = startY + castEntryFrame.origin.y + SPACER;
     
     // Divider
-    
     frame = self.divider.frame;
     frame.origin.y = startY;
     self.divider.frame = frame;
