@@ -205,9 +205,8 @@
     {
         NSDictionary *posters = [movie valueForKey:@"posters"];
         NSString *imageURL = [posters valueForKey:@"thumbnail"];
-        
-        UIImage *image = [self imageFromCacheWithURLString:imageURL];
-        image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+    
+        UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
         [self cacheImage:image withURLString:imageURL];
     }
 }
