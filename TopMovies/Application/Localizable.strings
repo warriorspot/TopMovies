@@ -2,3 +2,4 @@
 "NETWORK_REQUEST_FAILED_TITLE" = "Oops!";
 "NETWORK_REQUEST_FAILED" = "Could not retrieve movies!";
 "NETWORK_NOT_CONNECTED" = "You appear to be offline.\nTry again when you are connected.";
+"NETWORK_NOT_CONNECTED_RETRY" = "Retry";
