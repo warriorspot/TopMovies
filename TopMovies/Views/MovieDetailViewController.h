@@ -12,5 +12,6 @@
 @property (nonatomic, strong) IBOutlet UILabel *castHeaderLabel;
 @property (nonatomic, strong) IBOutlet UIView *divider;
 @property (nonatomic, strong) IBOutlet UILabel *summaryLabel;
+@property (nonatomic, strong) UIBarButtonItem *tweetButton;
 
 @end

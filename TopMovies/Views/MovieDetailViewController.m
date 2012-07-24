@@ -2,7 +2,7 @@
 #import "MovieDetailViewController.h"
 #import "MovieDetailViewController+Private.h"
 
-#define SPACER 5.0f;
+#define SPACER 5.0f
 
 @implementation MovieDetailViewController
 
@@ -15,11 +15,22 @@
 @synthesize divider;
 @synthesize summaryLabel;
 @synthesize movieData;
+@synthesize tweetButton;
 
 - (void) viewDidAppear:(BOOL)animated
 {
     [self initializeWithMovieData:self.movieData];
     [super viewDidAppear:animated];
+}
+
+- (void) viewDidLoad
+{
+    self.tweetButton = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" 
+                                                        style:UIBarButtonItemStyleBordered 
+                                                       target:self 
+                                                       action:@selector(didSelectTweet:)];
+    self.tweetButton.tintColor = [UIColor blueColor];
+    self.navigationItem.rightBarButtonItem = self.tweetButton;
 }
 
 - (void) viewDidUnload
@@ -32,6 +43,7 @@
     self.castHeaderLabel = nil;
     self.divider = nil;
     self.summaryLabel = nil;
+    self.tweetButton = nil;
     
     [super viewDidUnload];
 }
@@ -51,6 +63,11 @@
     CGSize synopsisSize = [string sizeWithFont: font constrainedToSize:MaximumSynopsisSize lineBreakMode:self.synopsisLabel.lineBreakMode];
     synopsisLabelFrame.size = synopsisSize;
     self.synopsisLabel.frame = synopsisLabelFrame;
+}
+
+- (void) didSelectTweet: (id) sender
+{
+    
 }
 
 - (void) initializeWithMovieData:(NSDictionary *)movie
@@ -124,7 +141,7 @@
     frame.origin.y = startY;
     summaryLabel.frame = frame;
     
-    self.scrollView.contentSize = CGSizeMake(320.0f, frame.origin.y + frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(320.0f, frame.origin.y + frame.size.height + SPACER);
 }
 
 @end
