@@ -3,6 +3,7 @@
 *~.nib
 
 build/
+TopMovies.xcodeproj/xcuserdata/*
 
 *.pbxuser
 *.perspective
