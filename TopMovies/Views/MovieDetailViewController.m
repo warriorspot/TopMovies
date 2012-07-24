@@ -2,6 +2,8 @@
 #import "MovieDetailViewController.h"
 #import "MovieDetailViewController+Private.h"
 
+#define SPACER 5.0f;
+
 @implementation MovieDetailViewController
 
 @synthesize activityIndicator;
@@ -10,7 +12,6 @@
 @synthesize synopsisHeaderLabel;
 @synthesize synopsisLabel;
 @synthesize castHeaderLabel;
-@synthesize castLabel;
 @synthesize divider;
 @synthesize summaryLabel;
 @synthesize movieData;
@@ -29,7 +30,6 @@
     self.synopsisHeaderLabel = nil;
     self.synopsisLabel = nil;
     self.castHeaderLabel = nil;
-    self.castLabel = nil;
     self.divider = nil;
     self.summaryLabel = nil;
     
@@ -63,9 +63,68 @@
     UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
     self.moviePosterImageView.image = image;
     
+    // Synopsis
     NSString *synopsis = [movie valueForKey:@"synopsis"];
     [self adjustSynopsisLabelForString:synopsis];
     self.synopsisLabel.text = synopsis;
+    
+    // Cast
+    NSUInteger startY = self.synopsisLabel.frame.origin.y + self.synopsisLabel.frame.size.height;
+    CGRect frame = self.castHeaderLabel.frame;
+    frame.origin.y = startY + SPACER;
+    self.castHeaderLabel.frame = frame;
+    startY = startY + frame.size.height + SPACER;
+    
+    CGRect castEntryFrame = CGRectZero;
+    NSArray *abridgedCast = [movie valueForKey:@"abridged_cast"];
+    for(NSDictionary *castMember in abridgedCast)
+    {
+        NSString *actor = [castMember valueForKey:@"name"];
+        NSArray *characters = [castMember valueForKey:@"characters"];
+        // Only show first character played
+        NSString *character = [characters objectAtIndex:0];
+        NSString *castEntry = [NSString stringWithFormat:@"%@ as %@", actor, character];
+        
+        UILabel *castEntryLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0f, startY, 320.0f, 25.0f)];
+        castEntryLabel.font = [UIFont systemFontOfSize:12.0f];
+        castEntryLabel.textAlignment = UITextAlignmentLeft;
+        castEntryLabel.textColor = [UIColor blackColor];
+    
+        CGRect castEntryFrame = castEntryLabel.frame;
+        castEntryFrame.origin.y = startY;
+        castEntryLabel.text = castEntry;
+        
+        startY = startY + castEntryFrame.size.height + SPACER;
+        
+        [self.scrollView addSubview:castEntryLabel];
+    }
+    
+    startY = startY + castEntryFrame.origin.y + SPACER;
+    
+    // Divider
+    
+    frame = self.divider.frame;
+    frame.origin.y = startY;
+    self.divider.frame = frame;
+    startY = startY + frame.size.height + SPACER;
+    
+    // Summary
+    NSString *rated = [movie valueForKey:@"mpaa_rating"];
+    NSDictionary *ratings = [movie valueForKey:@"ratings"];
+    NSString *freshness = [ratings valueForKey:@"critics_score"];
+    NSString *runtime = [movie valueForKey:@"runtime"];
+    NSInteger runtimeMinutes = [runtime intValue];
+    NSInteger runtimeHours = runtimeMinutes / 60;
+    runtimeMinutes = runtimeMinutes - (runtimeHours * 60);
+    
+    NSString *summaryString = [NSString stringWithFormat:@"Rated %@ - Freshness: %@%% - Runtime: %dhr %dmin", rated, freshness, runtimeHours, runtimeMinutes];
+    self.summaryLabel.text = summaryString;
+    
+    frame = self.summaryLabel.frame;
+    frame.origin.y = startY;
+    summaryLabel.frame = frame;
+    
+    self.scrollView.contentSize = CGSizeMake(320.0f, frame.origin.y + frame.size.height);
 }
 
 @end

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TopMovies/Views/MovieDetailViewController.m"
-         timestampString = "364781805.974142"
+         timestampString = "364786821.978742"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
+         startingLineNumber = "21"
+         endingLineNumber = "21"
          landmarkName = "-viewDidAppear:"
          landmarkType = "5">
       </FileBreakpoint>
