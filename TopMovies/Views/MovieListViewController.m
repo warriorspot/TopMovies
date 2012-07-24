@@ -72,6 +72,8 @@
     
     [movies addObjectsFromArray:[self moviesFromData:data]];
     
+    [self loadAndCacheImages];
+    
     [self.movieTableView reloadData];
     
     [self toggleView:self.movieTableView visible:YES animated:YES];
@@ -191,6 +193,18 @@
     cell.posterImage = image;
 }
 
+- (void) loadAndCacheImages
+{
+    for(NSDictionary *movie in self.movies)
+    {
+        NSDictionary *posters = [movie valueForKey:@"posters"];
+        NSString *imageURL = [posters valueForKey:@"thumbnail"];
+        
+        UIImage *image = [self imageFromCacheWithURLString:imageURL];
+        image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+        [self cacheImage:image withURLString:imageURL];
+    }
+}
 
 - (NSArray *) moviesFromData: (NSDictionary *) data
 {
