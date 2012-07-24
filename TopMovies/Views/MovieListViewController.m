@@ -37,6 +37,12 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    NSIndexPath *selectedRow = [self.movieTableView indexPathForSelectedRow];
+    if(selectedRow)
+    {
+        [self.movieTableView deselectRowAtIndexPath:selectedRow animated:NO];
+    }
+    
     if(self.movies == nil)
     {
         [self toggleView:self.movieTableView visible:NO animated: NO];
@@ -206,7 +212,7 @@
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NETWORK_REQUEST_FAILED_TITLE", NULL)  
                                                             message:NSLocalizedString(@"NETWORK_NOT_CONNECTED", NULL) 
                                                            delegate:self 
-                                                  cancelButtonTitle:@"Retry" 
+                                                  cancelButtonTitle:NSLocalizedString(@"NETWORK_NOT_CONNECTED_RETRY", NULL)  
                                                   otherButtonTitles:nil];
         [alertView show];
         return;
