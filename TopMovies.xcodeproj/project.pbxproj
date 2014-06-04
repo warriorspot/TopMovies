@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26356D8315CD761B00D7107B /* MovieDetailScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 26356D8215CD761B00D7107B /* MovieDetailScrollView.m */; };
 		44636B2315BE3EDF0017CCCA /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44636B2215BE3EDF0017CCCA /* Twitter.framework */; };
 		44949DE415B9953E00B94BB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44949DE315B9953E00B94BB1 /* UIKit.framework */; };
 		44949DE615B9953E00B94BB1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44949DE515B9953E00B94BB1 /* Foundation.framework */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26356D8115CD761B00D7107B /* MovieDetailScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailScrollView.h; sourceTree = "<group>"; };
+		26356D8215CD761B00D7107B /* MovieDetailScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailScrollView.m; sourceTree = "<group>"; };
 		44636B2215BE3EDF0017CCCA /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		44949DDF15B9953E00B94BB1 /* TopMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44949DE315B9953E00B94BB1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -217,6 +220,8 @@
 				44C1B9FE15BAEBF000E546BC /* MovieCell.h */,
 				44C1B9FF15BAEBF000E546BC /* MovieCell.m */,
 				44C1BA0115BAEC0A00E546BC /* MovieCell.xib */,
+				26356D8115CD761B00D7107B /* MovieDetailScrollView.h */,
+				26356D8215CD761B00D7107B /* MovieDetailScrollView.m */,
 				44949E2A15B9972400B94BB1 /* MovieDetailViewController.h */,
 				44949E2B15B9972400B94BB1 /* MovieDetailViewController.m */,
 				44949E2C15B9972400B94BB1 /* MovieDetailViewController.xib */,
@@ -373,6 +378,7 @@
 				44949E3515B99A7400B94BB1 /* Reachability.m in Sources */,
 				44C1BA0015BAEBF000E546BC /* MovieCell.m in Sources */,
 				44C1BA0615BB158400E546BC /* MovieRequest.m in Sources */,
+				26356D8315CD761B00D7107B /* MovieDetailScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,4 +1,5 @@
 
+#import "MovieDetailScrollView.h"
 #import "MovieDetailViewController.h"
 #import <Twitter/TWTweetComposeViewController.h>
 
@@ -106,7 +107,6 @@
     
     // Synopsis
     NSString *synopsis = [movie valueForKey:@"synopsis"];
-    [self adjustSynopsisLabelForString:synopsis];
     self.synopsisLabel.text = synopsis;
     
     // Cast
